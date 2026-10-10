@@ -10,11 +10,10 @@
 namespace JDZ\AdminKit\Tests\List;
 
 use JDZ\AdminKit\List\Paginator;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \JDZ\AdminKit\List\Paginator
- */
+#[CoversClass(Paginator::class)]
 class PaginatorTest extends TestCase
 {
     public function testFirstPage(): void

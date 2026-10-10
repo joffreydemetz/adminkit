@@ -11,11 +11,10 @@ namespace JDZ\AdminKit\Tests\List;
 
 use JDZ\AdminKit\List\FilterFormScaffold;
 use JDZ\Form\Form;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \JDZ\AdminKit\List\FilterFormScaffold
- */
+#[CoversClass(FilterFormScaffold::class)]
 class FilterFormScaffoldTest extends TestCase
 {
     private function scaffold(Form $form): FilterFormScaffold

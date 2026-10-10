@@ -10,11 +10,10 @@
 namespace JDZ\AdminKit\Tests\List;
 
 use JDZ\AdminKit\List\FilterStateResolver;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \JDZ\AdminKit\List\FilterStateResolver
- */
+#[CoversClass(FilterStateResolver::class)]
 class FilterStateResolverTest extends TestCase
 {
     public function testExtractFilterParamsStripsPrefix(): void

@@ -12,11 +12,10 @@ namespace JDZ\AdminKit\Tests\Item;
 use JDZ\AdminKit\Item\UniquenessChecker;
 use JDZ\Database\Contract\DatabaseInterface;
 use JDZ\Database\Query\QueryInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \JDZ\AdminKit\Item\UniquenessChecker
- */
+#[CoversClass(UniquenessChecker::class)]
 class UniquenessCheckerTest extends TestCase
 {
     private function dbo(mixed $loadResult): DatabaseInterface

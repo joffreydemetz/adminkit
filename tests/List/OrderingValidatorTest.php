@@ -10,11 +10,10 @@
 namespace JDZ\AdminKit\Tests\List;
 
 use JDZ\AdminKit\List\OrderingValidator;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \JDZ\AdminKit\List\OrderingValidator
- */
+#[CoversClass(OrderingValidator::class)]
 class OrderingValidatorTest extends TestCase
 {
     /** all gates open */

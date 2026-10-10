@@ -11,11 +11,10 @@ namespace JDZ\AdminKit\Tests\Item;
 
 use JDZ\AdminKit\Item\DataSanitizer;
 use JDZ\Form\FormData;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \JDZ\AdminKit\Item\DataSanitizer
- */
+#[CoversClass(DataSanitizer::class)]
 class DataSanitizerTest extends TestCase
 {
     private const NULL_DATETIME = '1000-01-01 00:00:00';

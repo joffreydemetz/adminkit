@@ -10,11 +10,10 @@
 namespace JDZ\AdminKit\Tests\List;
 
 use JDZ\AdminKit\List\SearchTerm;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \JDZ\AdminKit\List\SearchTerm
- */
+#[CoversClass(SearchTerm::class)]
 class SearchTermTest extends TestCase
 {
     public function testPlainSearchHasNoCode(): void
