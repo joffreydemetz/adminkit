@@ -59,6 +59,8 @@ composer test
 
 ## Changelog
 
+- **1.1.1** — `List\Paginator` never goes below page 1: an empty result (0 pages) or a page 0 or below asked for gave a negative offset.
+
 - **1.1.0** — `List\FilterFormScaffold` (standard admin filterbar builder).
 - **1.0.0** — Initial release.
 
