@@ -11,6 +11,7 @@ namespace JDZ\AdminKit\Tests\List;
 
 use JDZ\AdminKit\List\Paginator;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(Paginator::class)]
@@ -68,5 +69,25 @@ class PaginatorTest extends TestCase
         $this->assertEquals(1, $p->page);
         $this->assertEquals(0, $p->start);
         $this->assertEquals(1, $p->nbPages);
+    }
+
+    public static function edgeCases(): array
+    {
+        return [
+            // nbPages was 0, page 1 was pulled back to 0, the offset was -20 (an SQL error)
+            'no result' => [0, 1, 20, [1, 0, 1]],
+            'no result, a later page asked' => [0, 3, 20, [1, 0, 1]],
+            // page 0 or below gave a negative offset
+            'page 0' => [45, 0, 20, [1, 0, 3]],
+            'a negative page' => [45, -2, 20, [1, 0, 3]],
+        ];
+    }
+
+    #[DataProvider('edgeCases')]
+    public function testThePageAndOffsetNeverGoBelowTheFirstPage(int $total, int $page, int $limit, array $expected): void
+    {
+        $p = new Paginator(total: $total, page: $page, limit: $limit);
+
+        $this->assertSame($expected, [$p->page, $p->start, $p->nbPages]);
     }
 }

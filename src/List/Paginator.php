@@ -32,10 +32,16 @@ class Paginator
     $this->total = $total;
     $this->limit = $limit;
 
-    $nbPages = $limit > 0 ? (int)ceil($total / $limit) : 1;
+    // at least one page, and never below it: no result gave 0 pages, page 1 pulled
+    // back to 0 and an offset of -limit (as did a page 0 or below asked for)
+    $nbPages = $limit > 0 ? max(1, (int)ceil($total / $limit)) : 1;
 
     if ($page > $nbPages) {
       $page = $nbPages;
+    }
+
+    if ($page < 1) {
+      $page = 1;
     }
 
     $start = ($page - 1) * $limit;
